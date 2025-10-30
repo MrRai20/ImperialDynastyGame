@@ -1,3 +1,6 @@
+[![CI](https://github.com/MrRai20/ImperialDynastyGame/actions/workflows/ci.yml/badge.svg)](https://github.com/MrRai20/ImperialDynastyGame/actions/workflows/ci.yml)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/MrRai20/ImperialDynastyGame)
+
 # Imperial Dynasties — Sparta 380 BC (CLI)
 
 A small historical strategy simulation you can play in the terminal. Built with pure Python.
@@ -5,7 +8,7 @@ A small historical strategy simulation you can play in the terminal. Built with 
 ## Quick Start
 
 ```bash
-git clone https://github.com/<your-username>/imperial-dynasties.git
+git clone https://github.com/MrRai20/ImperialDynastyGame.git
 cd imperial-dynasties
 python3 -m pip install -r requirements.txt  # (none required right now)
 python3 main.py
