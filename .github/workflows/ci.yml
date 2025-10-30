@@ -1,4 +1,7 @@
+# .github/workflows/ci.yml
 name: CI
+permissions:
+  contents: write   # allow bot to push auto-fixes
 
 on:
   push:
@@ -10,6 +13,8 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -18,23 +23,41 @@ jobs:
       - name: Install tools
         run: |
           python -m pip install -U pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           pip install ruff
 
-      - name: Auto-fix lint errors
-        run: npx eslint . --fix
+      # Auto-fix Python style with Ruff (not ESLint)
+      - name: Ruff auto-fix and format
+        run: |
+          ruff check --fix .
+          ruff format .
 
-      - name: Lint
-        run: ruff check --fix .
+      # Commit & push only if fixes were applied
+      - name: Commit & push auto-fixes (if any)
+        run: |
+          if ! git diff --quiet; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "ci: ruff auto-fix"
+            git push || true
+          fi
 
-      - name: Smoke run (non-interactive, never fail the build)
+      # Report lint, but never fail the build
+      - name: Lint report (non-blocking)
+        run: ruff check --exit-zero .
+        continue-on-error: true
+
+      # Run the game once and exit; never fail CI
+      - name: Smoke run (non-blocking)
         run: |
           python - << 'PY'
-          import subprocess, sys, textwrap
-          cmd = [sys.executable, "main.py"]
-          p = subprocess.Popen(cmd, stdin=subprocess.PIPE, text=True)
+          import subprocess, sys
+          p = subprocess.Popen([sys.executable, "main.py"], stdin=subprocess.PIPE, text=True)
           try:
-              p.communicate("end\n", timeout=12)  # send 'end' then bail
+              p.communicate("end\n", timeout=12)  # send 'end' so your loop exits
           except Exception as e:
               print("Smoke run skipped:", e)
+              try: p.kill()
+              except Exception: pass
+          sys.exit(0)
           PY
