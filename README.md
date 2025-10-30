@@ -1,5 +1,8 @@
 [![CI](https://github.com/MrRai20/ImperialDynastyGame/actions/workflows/ci.yml/badge.svg)](https://github.com/MrRai20/ImperialDynastyGame/actions/workflows/ci.yml)
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/MrRai20/ImperialDynastyGame)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)
+
 
 # Imperial Dynasties — Sparta 380 BC (CLI)
 
