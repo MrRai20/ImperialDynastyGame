@@ -1,11 +1,11 @@
+# .github/workflows/ci.yml
 name: CI
-
 on:
   push:
   pull_request:
 
 jobs:
-  lint-and-smoke:
+  lint-security-test-smoke:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -14,14 +14,23 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install deps
+      - name: Install tools
         run: |
           python -m pip install -U pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          pip install ruff
+          pip install ruff bandit pip-audit pytest
 
       - name: Lint
         run: ruff check .
+
+      - name: Security (Bandit)
+        run: bandit -q -r .
+
+      - name: Dependency scan (pip-audit)
+        run: pip-audit -q
+
+      - name: Tests
+        run: pytest -q
 
       - name: Smoke run (non-interactive)
         run: |
