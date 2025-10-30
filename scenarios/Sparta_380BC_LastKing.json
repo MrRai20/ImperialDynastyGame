@@ -13,7 +13,7 @@
       "leader": "Agesilaus II",
       "stats": {"military": 15, "economy": 6, "diplomacy": 4, "religion": 3},
       "info": {"traits": ["warrior_culture", "land_power", "oligarchy"], "notes": "Post-Peloponnesian War decline; manpower crisis; Thebes ascendant."},
-      "resources": {"gold": 800, "manpower": 900, "authority": 5, "legitimacy":35, "stability":50}
+      "resources": {"gold": 800, "manpower": 900, "authority": 65, "legitimacy":55, "stability":50}
       
     }
   },
