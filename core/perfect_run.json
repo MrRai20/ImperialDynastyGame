@@ -1,0 +1,105 @@
+{
+  "Sparta_380BC": {
+    "faction": "Sparta",
+    "context": "Post-Peloponnesian War collapse. Sparta’s citizen body reduced to under 2,000 adult males; Perioikoi and Helots vastly outnumber them. Thebes rising. Economic stagnation threatens total decline.",
+    "ideal_actions": {
+      "land_redistribution": {
+        "keywords": ["land", "reform", "redistribution", "kleroi"],
+        "effect": { "gold": -100, "authority": 5, "stability": 3 },
+        "summary": "Redistribution of estates to landless Spartiates stabilises loyalty and corrects inequality."
+      },
+      "tax_incentives_for_birth": {
+        "keywords": ["tax", "birthrate", "family", "incentive", "families", "children", "tax break"],
+        "effect": { "gold": -50, "population_growth": 4, "legitimacy": 2 },
+        "summary": "Family tax breaks and stipends raise fertility among citizen families."
+      },
+      "auxiliary_integration": {
+        "keywords": ["military", "auxiliary", "nonspartiates", "training"],
+        "effect": { "gold": -80, "manpower": 6, "authority": 2 },
+        "summary": "Perioikoi and loyal Helots trained as auxiliaries under Spartan officers; effective strength doubled."
+      },
+      "royal_social_services": {
+        "keywords": ["inspection", "welfare", "oversight", "auditors"],
+        "effect": { "gold": -40, "stability": 3, "corruption": -2 },
+        "summary": "Inspector corps manages welfare, censuses and births; public trust restored."
+      },
+      "harems_and_family_policy": {
+        "keywords": ["harem", "population", "marriage", "women"],
+        "effect": { "legitimacy": -1, "population_growth": 5, "stability": 2 },
+        "summary": "Extended family households increase births; minor cultural friction offset by prosperity."
+      },
+      "vassal_buffer_management": {
+        "keywords": ["vassal", "proxy", "rebellion", "containment"],
+        "effect": { "authority": 3, "manpower": -1, "stability": 2 },
+        "summary": "Dependent allies police the frontier, conserving Spartan manpower while draining rivals."
+      },
+      "dual_command_reform": {
+        "keywords": ["command", "officers", "promotion", "dual"],
+        "effect": { "manpower": 2, "efficiency": 4, "authority": 2 },
+        "summary": "Formal officer-soldier hierarchy and merit promotion raise cohesion and combat performance."
+      },
+      "religious_legitimation": {
+        "keywords": ["religion", "festival", "lycurgus", "propaganda"],
+        "effect": { "legitimacy": 4, "stability": 1, "authority": 2 },
+        "summary": "Lycurgan festivals present reforms as sacred restoration; dissent among elders fades."
+      },
+      "training_regimen": {
+        "keywords": ["agoge", "training", "discipline", "education"],
+        "effect": { "manpower": 3, "stability": 2 },
+        "summary": "Revised agoge and mentorship strengthen discipline and civic unity."
+      },
+      "naval_trade_initiative": {
+        "keywords": ["trade", "navy", "commerce", "port"],
+        "effect": { "gold": 60, "stability": 1 },
+        "summary": "Revived coastal trade offsets reform costs and re-opens foreign markets."
+      }
+    },
+    "simulation_outcome": {
+      "decade_1_380_370": {
+        "total_population": 150000,
+        "spartiates": 2000,
+        "treasury": 800,
+        "legitimacy": 55,
+        "stability": 60,
+        "summary": "Initial reforms ratified. Land redistribution implemented under religious sanction; minor elite unrest contained."
+      },
+      "decade_2_370_360": {
+        "total_population": 170000,
+        "spartiates": 4500,
+        "treasury": 900,
+        "legitimacy": 68,
+        "stability": 74,
+        "summary": "Auxiliary integration successful. New census reveals demographic recovery. Trade resumes through Corinthian Gulf."
+      },
+      "decade_3_360_350": {
+        "total_population": 190000,
+        "spartiates": 7200,
+        "treasury": 1050,
+        "legitimacy": 70,
+        "stability": 82,
+        "summary": "Religious opposition fades as prosperity rises. New officer corps strengthens battlefield organisation."
+      },
+      "decade_4_350_340": {
+        "total_population": 220000,
+        "spartiates": 9200,
+        "treasury": 1200,
+        "legitimacy": 76,
+        "stability": 88,
+        "summary": "Population and economy stabilise; Sparta regains hegemony in the Peloponnese. Auxiliary corps fully professionalised."
+      },
+      "final_metrics": {
+        "total_population_growth": "+47%",
+        "spartiates_growth": "+360%",
+        "treasury_change": "+50%",
+        "legitimacy_change": "+21",
+        "stability_change": "+28",
+        "overall_outcome": "Sparta restored as a disciplined regional power; citizen body revitalised; governance modernised while preserving identity."
+      }
+    }
+  },
+  "Jerusalem_1185_AU": {
+    "faction": "Kingdom of Jerusalem",
+    "context": "Placeholder reference block for AU timeline — to be expanded later.",
+    "ideal_actions": {}
+  }
+}

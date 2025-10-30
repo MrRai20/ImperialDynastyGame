@@ -1,0 +1,13 @@
+{
+  "campaign_meta": {"id": "Jerusalem_1185_AU", "title": "Kingdom of Jerusalem — Baldwin Lives AU", "year_start": 1185},
+  "player_faction": "Kingdom of Jerusalem",
+  "factions": {
+    "Kingdom of Jerusalem": {
+      "leader": "Baldwin IV",
+      "stats": {"military": 10, "economy": 8, "diplomacy": 7, "religion": 9},
+      "context": {"traits": ["theocracy", "trade_empire", "land_power"], "notes": "Alternate timeline where Baldwin IV survives; focuses on reform and consolidation."},
+      "resources": {"gold": 1000, "manpower": 800, "authority": 0}
+    }
+  },
+  "save_state": {"current_turn": 1, "turn_year": 1185}
+}

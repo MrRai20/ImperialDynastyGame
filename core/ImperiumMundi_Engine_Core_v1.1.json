@@ -1,0 +1,31 @@
+{
+  "engine_version": "1.1",
+  "meta": {
+    "title": "Imperium Mundi Simulation Engine Core",
+    "description": "Base rule set defining global parameters, turn cycles, and resource modifiers for all scenarios."
+  },
+  "rules": {
+    "turn_length": "1 year",
+    "base_resource_pool": {"gold": 1000, "manpower": 1000, "authority": 0},
+    "stat_range": {"minimum": 0, "maximum": 20},
+    "categories": ["military", "economy", "diplomacy", "religion", "generic"],
+    "default_effect_modifiers": {
+      "major_success": 1.0,
+      "success": 0.7,
+      "mixed": 0.4,
+      "failure": 0.2,
+      "disaster": 0.0
+    }
+  },
+  "contextual_modifiers": {
+    "traits": {
+      "land_power": {"military": 8},
+      "naval_power": {"military": -3, "economy": 3},
+      "warrior_culture": {"military": 5, "diplomacy": -2},
+      "trade_empire": {"economy": 6, "military": -2},
+      "oligarchy": {"diplomacy": -2},
+      "democracy": {"diplomacy": 4},
+      "theocracy": {"religion": 5}
+    }
+  }
+}

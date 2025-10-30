@@ -1,0 +1,10 @@
+[project]
+name = "imperial-dynasties"
+version = "0.1.0"
+description = "CLI historical strategy sim (Sparta 380 BC)."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Your Name" }]
+
+[tool.ruff]
+line-length = 100
