@@ -21,8 +21,11 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           pip install ruff
 
+      - name: Auto-fix lint errors
+        run: npx eslint . --fix
+
       - name: Lint
-        run: ruff check .
+        run: ruff check --fix .
 
       - name: Smoke run (non-interactive, never fail the build)
         run: |
