@@ -4,14 +4,22 @@ import json
 from datetime import datetime
 
 from engine.loader import (
-    load_engine, load_scenario, load_perfect_run,
-    select_perfect_block, get_player_handles,
-    save_game_state, load_game_state
+    load_engine,
+    load_scenario,
+    load_perfect_run,
+    select_perfect_block,
+    get_player_handles,
+    save_game_state,
+    load_game_state,
 )
 from engine.decisions import classify_category, match_perfect_action
 from engine.outcome import (
-    context_modifier, compute_quality_score, quality_band,
-    fallback_effects, compose_summary, apply_effects
+    context_modifier,
+    compute_quality_score,
+    quality_band,
+    fallback_effects,
+    compose_summary,
+    apply_effects,
 )
 
 # ─────────────────────────────────────────────────────────────
@@ -22,6 +30,7 @@ PERFECT_RUN_PATH = ROOT / "core" / "perfect_run.json"
 SCENARIO_PATH = ROOT / "scenarios" / "Sparta_380BC_LastKing.json"
 
 # ─────────────────────────────────────────────────────────────
+
 
 def check_end_conditions(resources: dict, turn: int) -> str | None:
     if turn >= 40:
@@ -40,15 +49,18 @@ def check_end_conditions(resources: dict, turn: int) -> str | None:
         return "Your reforms succeed beyond expectation — a new golden age dawns."
     return None
 
+
 def save_log(entries, path: Path):
     with path.open("w", encoding="utf-8") as f:
         json.dump(entries, f, indent=2)
+
 
 def print_resources(resources: dict, header: str = None):
     if header:
         print(header)
     for k, v in resources.items():
         print(f" - {k.capitalize()}: {v}")
+
 
 def parse_year(value) -> int:
     """
@@ -75,11 +87,13 @@ def parse_year(value) -> int:
     except ValueError:
         return -380  # defensible default for this scenario
 
+
 def display_year(year: int) -> str:
     if year > 0:
         return f"{year} AD"
     else:
         return f"{abs(year)} BC"
+
 
 def advance_year(year: int) -> int:
     """
@@ -91,6 +105,7 @@ def advance_year(year: int) -> int:
         return 1
     return nxt
 
+
 def calendar_distance(start: int, current: int) -> int:
     """
     Elapsed whole years from start to current going forward, with no year 0.
@@ -100,6 +115,7 @@ def calendar_distance(start: int, current: int) -> int:
     crosses_zero = (start <= -1) and (current >= 1)
     raw = current - start
     return raw - (1 if crosses_zero else 0)
+
 
 def main():
     used_perfect_actions = set()
@@ -177,7 +193,9 @@ def main():
             resources = pf_data.get("resources", resources)
             # Why: keep counters coherent after load.
             turn_year = parse_year(scenario.get("save_state", {}).get("turn_year", turn_year))
-            start_turn_year = parse_year(scenario.get("save_state", {}).get("start_turn_year", start_turn_year))
+            start_turn_year = parse_year(
+                scenario.get("save_state", {}).get("start_turn_year", start_turn_year)
+            )
             turn = scenario.get("save_state", {}).get("current_turn", turn)
             continue
 
@@ -186,7 +204,7 @@ def main():
             print(f"Year: {display_year(turn_year)} — {pf_name}")
             print(f"Context: {scenario.get('context', 'No contextual data.')}")
             print("\nPrimary Objectives:")
-            for i, goal in enumerate(scenario.get('objectives', []), start=1):
+            for i, goal in enumerate(scenario.get("objectives", []), start=1):
                 print(f"  {i}. {goal}")
             print("===========================\n")
             continue
@@ -236,7 +254,9 @@ def main():
             if action_key in used_perfect_actions:
                 print("[⚠️ Perfect Run Denied] That strategy has already been executed.")
                 delta = {"authority": -1}
-                summary = "Repetition breeds stagnation — the same policy yields diminishing returns."
+                summary = (
+                    "Repetition breeds stagnation — the same policy yields diminishing returns."
+                )
                 band = "failure"
             else:
                 used_perfect_actions.add(action_key)
@@ -280,7 +300,9 @@ def main():
         turn_year = advance_year(turn_year)
         scenario.setdefault("save_state", {})["turn_year"] = turn_year
         scenario["save_state"]["current_turn"] = turn
-        scenario["save_state"]["start_turn_year"] = start_turn_year  # Why: keep for accurate reports.
+        scenario["save_state"]["start_turn_year"] = (
+            start_turn_year  # Why: keep for accurate reports.
+        )
 
         end_msg = check_end_conditions(resources, turn)
         if end_msg:
@@ -292,6 +314,7 @@ def main():
     save_log(log, SAVE_PATH)
     print("\nSession saved to turn_log.json")
     print("Thank you for playing Imperial Dynasties.")
+
 
 if __name__ == "__main__":
     main()

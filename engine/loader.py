@@ -1,10 +1,8 @@
 # engine/loader.py
 import json
 from pathlib import Path
-from typing import Dict, Any, Optional, Tuple
-import json
-from pathlib import Path
-import json
+from typing import Dict, Any, Tuple
+
 
 def load_save_state(scenario: dict, save_path: str):
     """
@@ -36,8 +34,10 @@ def load_json(path: Path) -> Dict[str, Any]:
     with path.open("r", encoding="utf-8") as f:
         return json.load(f)
 
+
 def load_engine(core_path: Path) -> Dict[str, Any]:
     return load_json(core_path)
+
 
 def load_scenario(scenario_path: Path) -> Dict[str, Any]:
     scenario = load_json(scenario_path)
@@ -50,8 +50,10 @@ def load_scenario(scenario_path: Path) -> Dict[str, Any]:
         scenario["campaign_meta"] = meta
     return scenario
 
+
 def load_perfect_run(perfect_run_path: Path) -> Dict[str, Any]:
     return load_json(perfect_run_path)
+
 
 def select_perfect_block(scenario: Dict[str, Any], perfect_run: Dict[str, Any]) -> Dict[str, Any]:
     scenario_id = scenario.get("campaign_meta", {}).get("id")
@@ -62,15 +64,18 @@ def select_perfect_block(scenario: Dict[str, Any], perfect_run: Dict[str, Any]) 
         return block["factions"].get(pf, {})
     return block
 
+
 def first_faction_name(scenario: Dict[str, Any]) -> str:
     factions = scenario.get("factions", {})
     return next(iter(factions.keys())) if factions else "Unknown"
+
 
 def get_player_handles(scenario: Dict[str, Any]) -> Tuple[str, Dict[str, Any]]:
     """Return (player_faction_name, faction_data)."""
     pf = scenario.get("player_faction") or first_faction_name(scenario)
     fdata = scenario.get("factions", {}).get(pf, {})
     return pf, fdata
+
 
 def save_game_state(log: list, path: Path):
     """
