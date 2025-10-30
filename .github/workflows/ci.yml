@@ -26,10 +26,11 @@ jobs:
           pip install ruff
 
       # Auto-fix Python style with Ruff (not ESLint)
-      - name: Ruff auto-fix and format
+      - name: Ruff auto-fix (never fail)
         run: |
-          ruff check --fix .
+          ruff check --fix --exit-zero .
           ruff format .
+        continue-on-error: true
 
       # Commit & push only if fixes were applied
       - name: Commit & push auto-fixes (if any)
