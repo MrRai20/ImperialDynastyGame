@@ -1,21 +1,33 @@
 [![CI](https://github.com/MrRai20/ImperialDynastyGame/actions/workflows/ci.yml/badge.svg)](https://github.com/MrRai20/ImperialDynastyGame/actions/workflows/ci.yml)
+[![Tests](https://github.com/MrRai20/ImperialDynastyGame/actions/workflows/tests.yml/badge.svg)](https://github.com/MrRai20/ImperialDynastyGame/actions/workflows/tests.yml)
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/MrRai20/ImperialDynastyGame)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 ![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)
+
+
 
 
 # Imperial Dynasties — Sparta 380 BC (CLI)
 
 A small historical strategy simulation you can play in the terminal. Built with pure Python.
 
-## Quick Start
+
+---
+
+### Quick Run
 
 ```bash
-git clone https://github.com/MrRai20/ImperialDynastyGame.git
-cd imperial-dynasties
-python3 -m pip install -r requirements.txt  # (none required right now)
-python3 main.py
-```
+# Regular play
+python cli.py
+
+# Choose another scenario
+python cli.py --scenario scenarios/Jerusalem_1185_AU_BaldwinLives.json
+
+# CI/demo mode (auto exits)
+python cli.py --auto-end
+
+
+
+
 
 When prompted, type actions (e.g., `reform council`, `mobilize`, `report`, `save`, `load`, `briefing`, or `end`).
 
