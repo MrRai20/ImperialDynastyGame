@@ -1,8 +1,9 @@
 [![CI](https://github.com/MrRai20/ImperialDynastyGame/actions/workflows/ci.yml/badge.svg)](https://github.com/MrRai20/ImperialDynastyGame/actions/workflows/ci.yml)
 [![Tests](https://github.com/MrRai20/ImperialDynastyGame/actions/workflows/tests.yml/badge.svg)](https://github.com/MrRai20/ImperialDynastyGame/actions/workflows/tests.yml)
+[![Release](https://img.shields.io/github/v/release/MrRai20/ImperialDynastyGame?display_name=tag&sort=semver)](https://github.com/MrRai20/ImperialDynastyGame/releases)
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/MrRai20/ImperialDynastyGame)
-![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)
-
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+![Python 3.10–3.11](https://img.shields.io/badge/python-3.10–3.11-blue.svg)
 
 
 
