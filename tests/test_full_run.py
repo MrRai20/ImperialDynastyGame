@@ -2,6 +2,7 @@ import subprocess
 import sys
 import pathlib
 
+
 def test_full_run():
     """Run Imperial Dynasty Game via cli in auto end mode"""
     root = pathlib.Path(__file__).resolve().parent.parent
@@ -14,7 +15,7 @@ def test_full_run():
         timeout=30,
     )
 
-    #basic expectations
+    # basic expectations
 
     assert results.returncode == 0
     assert "Thank you for playing" in results.stdout
