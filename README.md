@@ -35,7 +35,12 @@ When prompted, type actions (e.g., `reform council`, `mobilize`, `report`, `save
 
 1. Fork this repo.
 2. Click **Code → Codespaces → Create codespace on main**.
-3. In the Codespace terminal run: `python3 main.py`.
+3. In the Codespace terminal run:
+   ```bash
+   python cli.py                 # interactive
+   # or:
+   python cli.py --auto-end      # quick demo, auto-exits
+
 
 > Codespaces uses `.devcontainer/devcontainer.json` so everything just works in-browser.
 
