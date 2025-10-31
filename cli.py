@@ -20,6 +20,7 @@ from contextlib import contextmanager
 REPO_ROOT = pathlib.Path(__file__).resolve().parent
 HARDCODED_SCENARIO = REPO_ROOT / "scenarios" / "Sparta_380BC_LastKing.json"
 
+
 @contextmanager
 def temporary_swap(target: pathlib.Path, source: pathlib.Path | None):
     backup = None
@@ -43,6 +44,7 @@ def temporary_swap(target: pathlib.Path, source: pathlib.Path | None):
             except Exception:
                 pass
 
+
 def run_game(auto_end: bool) -> int:
     cmd = [sys.executable, "main.py"]
     if not auto_end:
@@ -57,17 +59,20 @@ def run_game(auto_end: bool) -> int:
             pass
     return 0
 
+
 def parse_args() -> argparse.Namespace:
     ap = argparse.ArgumentParser(description="ImperialDynastyGame launcher")
     ap.add_argument("--scenario", help="Path to scenario JSON to run.")
     ap.add_argument("--auto-end", action="store_true", help="Auto-exit (sends 'end').")
     return ap.parse_args()
 
+
 def main() -> int:
     args = parse_args()
     scenario_path = pathlib.Path(args.scenario).resolve() if args.scenario else None
     with temporary_swap(HARDCODED_SCENARIO, scenario_path):
         return run_game(args.auto_end)
+
 
 if __name__ == "__main__":
     raise SystemExit(main())
