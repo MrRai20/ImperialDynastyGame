@@ -64,6 +64,25 @@ When prompted, type actions (e.g., `reform council`, `mobilize`, `report`, `save
 - GitHub Actions (`.github/workflows/ci.yml`) lints with Ruff and does a non-interactive smoke run.
 - Add tests under `tests/` and they'll run automatically.
 
+## Security
+
+**What we do**
+- **Static analysis (Bandit):** runs in CI (`bandit -q -r .`) to flag common Python issues (e.g., unsafe eval, weak crypto).
+- **Dependency audit (pip-audit):** checks for known CVEs in pip packages during CI.
+- **No secrets in repo:** saves/logs are ignored via `.gitignore`; no API keys or tokens.
+- **Graceful I/O:** the CLI accepts only plain-text commands; save/load use JSON with basic validation.
+- **Non-interactive fail-safe:** CI smoke run uses `cli.py --auto-end`, preventing interactive hangs.
+
+**How to run locally**
+```bash
+# Static analysis
+python -m pip install bandit
+bandit -q -r .
+
+# Dependency vulnerabilities
+python -m pip install pip-audit
+pip-audit -q
+
 ## License
 
 MIT — see `LICENSE`.
