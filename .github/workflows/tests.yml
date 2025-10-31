@@ -29,3 +29,7 @@ jobs:
       
       - name: Smoke run (non-blocking)
         run: python cli.py --auto-end || true
+
+      - name: Run full_run
+        run: |
+          pytest -q --disable-warnings 
