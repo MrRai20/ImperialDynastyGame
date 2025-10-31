@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+turn_log_*.json
+final_save.json
+analytics.db
